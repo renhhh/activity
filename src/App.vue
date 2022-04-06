@@ -38,7 +38,7 @@ body {
   height: 100%;
 }
 #app {
-  font-family: '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans SC';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
