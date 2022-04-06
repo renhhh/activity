@@ -6,13 +6,18 @@
 <template>
   <div class="login-box">
     <div class="content">
-      <span class="name">{{ form.F_CouponName }}购物</span>
-      <span class="title">平台优惠券</span>
-      <span class="money">
-        <span class="unit">¥</span>
-        <span class="num">{{ form.F_DiscountMoney }}</span>
-      </span>
-      <span class="use">满{{form.F_DiscountUse }}可使用</span>
+      <div class="left-box">
+        <span class="name">{{ form.F_CouponName }}购物</span>
+        <span class="title">平台优惠券</span>
+      </div>
+      <div class="right-box">
+        <div class="money">
+          <span class="unit">¥</span>
+          <span class="num">{{ form.F_DiscountMoney }}</span>
+        </div>
+        <div class="use">满{{ form.F_DiscountUse }}可使用</div>
+      </div>
+
       <span class="my">可到 “我的” 中查看</span>
     </div>
     <div class="login-btn" @click="clickLogin">确 定</div>
@@ -65,40 +70,48 @@ export default {
   background: url('../assets/images/chance/bg.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
+  .left-box {
+    display: flex;
+  }
+  .right-box {
+    margin-left: 12px;
+  }
   .content {
     position: relative;
+    display: flex;
+    align-items: center;
+
     background: url('../assets/images/chance/center.png') no-repeat center
       center;
     background-size: 100% 100%;
+    padding: 0 20px 0;
+
     height: 240px;
     > span {
       display: inline-block;
-      position: absolute;
     }
     .name {
-      width: 30px;
-      top: 92px;
-      left: 27px;
+      width: 22px;
       color: #b55229;
       font-weight: bold;
+      display: flex;
+      align-items: center;
     }
     .title {
       width: 30px;
-      top: 83px;
-      left: 49px;
       color: #b55229;
     }
     .my {
+      position: absolute;
+
       bottom: 19px;
       left: 79px;
       color: #fff;
     }
     .money {
-      display: flex;
-      align-items: end;
-      top: 99px;
-      left: 165px;
       color: #b55229;
+      text-align: center;
+      margin-bottom: 8px;
       .unit {
         font-size: 18px;
         font-weight: bold;

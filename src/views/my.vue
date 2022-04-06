@@ -31,10 +31,13 @@
       <div class="card-top">
         <img class="juan-left" src="../assets/images/my/juan.png" alt="" />
         <span class="my-title">我的优惠券</span>
-        <span class="jd-title">京东购物平台优惠券</span>
+        <!-- <span class="jd-title">京东购物平台优惠券</span> -->
       </div>
       <div class="juan-box">
+        <div class="not-data" v-if="!form.CouponList.length">暂无</div>
+
         <div
+          v-else
           class="juan-item"
           v-for="(item, index) of form.CouponList"
           :key="index"
@@ -47,18 +50,21 @@
             <div class="mb-4">{{ item.F_CouponName }}购物</div>
             <div style="font-size: 12px">平台优惠券</div>
           </div>
-          <div class="read-btn">查看</div>
+          <div class="read-btn" @click="clickReadJuan">查看</div>
         </div>
       </div>
     </div>
     <div class="common-border center-box">
       <div class="card-top">
-        <img class="juan-left" src="../assets/images/my/present.png" alt="" />
+        <img class="lipin-left" src="../assets/images/my/present.png" alt="" />
         <span class="my-title">我的礼品</span>
       </div>
       <!-- presents form.GiftList-->
       <div class="present-box">
+        <div class="not-data" v-if="!form.GiftList.length">暂无</div>
+
         <div
+          v-else
           class="present-item"
           v-for="(item, index) of form.GiftList"
           :key="index"
@@ -69,7 +75,10 @@
               <div class="introduce-name">{{ item.F_CouponName }}</div>
               <div>¥{{ item.F_Price }}</div>
             </div>
-            <div class="lingqu">
+            <div v-if="item.gittstatus" class="yilingqu">
+              <span>已领取</span>
+            </div>
+            <div v-else class="lingqu">
               <span @click="goAdreessPage(item.F_Level)">领 取</span>
             </div>
           </div>
@@ -79,6 +88,9 @@
     <div class="btn-box">
       <span class="btn" @click="goMain">返回寻宝</span>
     </div>
+    <van-dialog v-model="show" title="优惠卷">
+      <img :src="url" alt="" />
+    </van-dialog>
   </div>
 </template>
 
@@ -93,7 +105,12 @@ export default {
     return {
       cerect: sessionStorage.getItem('invitCode'),
       mobile: sessionStorage.getItem('mobile'),
-      form: {},
+      url: require('../assets/images/share/qrcode.png'),
+      form: {
+        CouponList: [],
+        GiftList: [],
+      },
+      show: false,
       presents: [
         { level: 1, name: '卷尺', price: '10.9' },
         { level: 2, name: '卷尺', price: '10.9' },
@@ -139,10 +156,20 @@ export default {
     goMain() {
       this.$router.push('/main')
     },
+    clickReadJuan() {
+      this.show = true
+    },
   },
 }
 </script>
 
+<style lang="scss">
+.my-box {
+  .van-dialog__content {
+    text-align: center;
+  }
+}
+</style>
 <style lang="scss" scoped>
 .my-box {
   width: 100%;
@@ -175,8 +202,15 @@ export default {
   .name {
     text-align: center;
     font-size: 26px;
-    color: #fff;
+    color: #0f644c;
     font-weight: bold;
+  }
+  .not-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 22px;
   }
   .top-box {
     box-sizing: border-box;
@@ -251,12 +285,15 @@ export default {
     .present-desc {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
     .introduce {
       margin-left: 12px;
       color: #fff;
       .introduce-name {
         margin-bottom: 8px;
+        font-size: 12px;
+        font-weight: bold;
       }
     }
     .present-box {
@@ -333,10 +370,24 @@ export default {
             font-weight: bold;
           }
         }
+        .yilingqu {
+          width: 74px;
+          height: 30px;
+          line-height: 30px;
+          color: #ffd01e;
+          text-align: center;
+          margin-right: 12px;
+          span {
+            font-weight: bold;
+          }
+        }
       }
     }
     .juan-left {
       width: 32px;
+    }
+    .lipin-left {
+      width: 28px;
     }
     .my-title {
       display: inline-block;

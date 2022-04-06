@@ -48,13 +48,48 @@
         class="img-7"
       />
       <!-- 2 -->
-      <img src="../assets/images/main/1.png" alt="1" class="img-8" />
-      <img src="../assets/images/main/2.png" alt="1" class="img-9" />
-      <img src="../assets/images/main/3.png" alt="1" class="img-10" />
-      <img src="../assets/images/main/4.png" alt="1" class="img-11" />
-      <img src="../assets/images/main/5.png" alt="1" class="img-12" />
-      <img src="../assets/images/main/6.png" alt="1" class="img-13" />
-      <img src="../assets/images/main/7.png" alt="1" class="img-14" />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/1.png"
+        alt="1"
+        class="img-8"
+      />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/2.png"
+        alt="1"
+        class="img-9"
+      />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/3.png"
+        alt="1"
+        class="img-10"
+      />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/4.png"
+        alt="1"
+        class="img-11"
+      />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/5.png"
+        alt="1"
+        class="img-12"
+      />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/6.png"
+        alt="1"
+        class="img-13"
+      />
+      <img
+        @click="clickIcon"
+        src="../assets/images/main/7.png"
+        alt="1"
+        class="img-14"
+      />
     </div>
     <div class="present-line">
       <div class="icon-box">
@@ -88,7 +123,7 @@
 
 <script>
 import axios from '../assets/js/axios'
-
+import { Dialog } from 'vant'
 export default {
   name: 'Main',
   data() {
@@ -194,6 +229,17 @@ export default {
   created() {
     this.getLotteryCount()
   },
+  mounted() {
+    this.$nextTick(() => {
+      Dialog.alert({
+        title: '提示',
+        message: '请左右滑动页面点击里面的石头、花草、燕子等元素开始寻宝吧！',
+        // theme: 'round-button',
+      }).then(() => {
+        // on close
+      })
+    })
+  },
   methods: {
     levelMap(level) {
       const map = {
@@ -252,11 +298,11 @@ export default {
           })
       })
     },
-    async clickIcon() {
+    clickIcon() {
       axios
         .post('/User/savesdgq', {
           // f_Mobile: this.route.query.f_Mobile
-          f_Mobile: '18311474562',
+          f_Mobile: this.mobile,
         })
         .then((res) => {
           const { data } = res
@@ -412,26 +458,20 @@ export default {
       height: 100%;
       width: 66px;
       margin-top: -20px;
-      > div {
-        width: 100%;
-        height: 10%;
-        background: url('../assets/images/main/icon.png') no-repeat center
-          center;
-        background-size: 50% 60%;
-      }
+
       .current-icon {
         width: 100%;
         height: 10%;
         background: url('../assets/images/main/icon.png') no-repeat center
           center;
-        background-size: 50% 60%;
+        background-size: 70% 90%;
       }
       .other-icon {
         width: 100%;
         height: 10%;
         background: url('../assets/images/main/other.png') no-repeat center
           center;
-        background-size: 50% 60%;
+        background-size: 70% 90%;
       }
     }
   }

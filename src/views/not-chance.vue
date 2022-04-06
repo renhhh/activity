@@ -11,10 +11,14 @@
 <template>
   <div class="login-box">
     <div class="content">
-      <span class="name">平台购物</span>
-      <span class="title">平台优惠券</span>
-      <span class="money"> 抽奖次数不足 </span>
-      <span class="use">请获取更多抽奖机会</span>
+      <div class="left-box">
+        <span class="name">平台购物</span>
+        <span class="title">平台优惠券</span>
+      </div>
+      <div class="right-box">
+        <span class="money"> 抽奖次数不足 </span>
+        <span class="use">请获取更多抽奖机会</span>
+      </div>
     </div>
     <div class="btn-box">
       <span @click="goSharePage">获取</span>
@@ -24,24 +28,18 @@
 </template>
 
 <script>
-import axios from '../assets/js/axios'
-import { Toast } from 'vant'
 export default {
   name: 'NotChance',
   data() {
-    return {
-
-    }
+    return {}
   },
-  created() {},
-
   methods: {
-    goSharePage(){
+    goSharePage() {
       this.$router.push('/share')
     },
-    cancel(){
+    cancel() {
       this.$router.push('/main')
-    }
+    },
   },
 }
 </script>
@@ -57,39 +55,43 @@ export default {
   background: url('../assets/images/chance/bg.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
+  .left-box {
+    display: flex;
+  }
+  .right-box {
+    margin-left: 8px;
+  }
   .content {
     position: relative;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
     background: url('../assets/images/chance/center.png') no-repeat center
       center;
     background-size: 100% 100%;
     height: 240px;
+    padding:0 20px 0;
     > span {
       display: inline-block;
-      position: absolute;
     }
     .name {
-      width: 30px;
-      top: 92px;
-      left: 27px;
+      width: 22px;
       color: #b55229;
       font-weight: bold;
+      display: flex;
+      align-items: center;
     }
     .title {
       width: 30px;
-      top: 83px;
-      left: 49px;
       color: #b55229;
     }
     .my {
-      bottom: 19px;
-      left: 79px;
       color: #fff;
     }
     .money {
       display: flex;
-      align-items: end;
-      top: 99px;
-      left: 134px;
+      padding-left:7px;
+      margin-bottom: 6px;
       color: #b55229;
       font-weight: bold;
       font-size: 22px;
@@ -97,7 +99,6 @@ export default {
     .use {
       top: 133px;
       left: 128px;
-
       color: #b55229;
     }
   }

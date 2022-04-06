@@ -23,9 +23,11 @@
             ></span>
           </div>
         </div>
-        <img src="../assets/images/share/qrcode.jpg" alt="" />
+        <img src="../assets/images/share/qrcode.png" alt="" />
       </div>
     </div>
+    <div class="login-btn">截图保存页面分享</div>
+
     <div class="login-btn" @click="goback">返 回</div>
   </div>
 </template>
@@ -75,6 +77,7 @@ export default {
   background: url('../assets/images/share/share.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
+  overflow: scroll;
   .main {
     box-sizing: border-box;
     height: 500px;
@@ -121,7 +124,7 @@ export default {
   .login-btn {
     width: 260px;
     height: 52px;
-    margin: 24px auto 0;
+    margin: 14px auto 0;
     text-align: center;
     line-height: 52px;
     background: url('../assets/images/login-btn.png') no-repeat center center;

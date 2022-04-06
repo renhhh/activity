@@ -29,10 +29,20 @@
       />
     </van-popup>
     <van-field
-      v-model="loginForm.f_Address"
-      class="telephone"
+      readonly
+      clickable
+      name="picker"
+      :value="loginForm.f_Address"
       placeholder="请输入您的地址"
+      @click="showArea = true"
     />
+    <van-popup v-model="showArea" position="bottom">
+      <van-area
+        :area-list="areaList"
+        @confirm="onConfirmArea"
+        @cancel="showArea = false"
+      />
+    </van-popup>
     <div class="login-btn" @click="clickLogin">立即进入</div>
   </div>
 </template>
@@ -40,6 +50,8 @@
 <script>
 import axios from '../assets/js/axios'
 import { Toast } from 'vant'
+import { areaList } from '@vant/area-data'
+
 export default {
   name: 'Info',
   data() {
@@ -61,6 +73,9 @@ export default {
         '其他',
       ],
       showPicker: false,
+      showArea: false,
+      areaList: areaList,
+
     }
   },
   created() {
@@ -68,6 +83,13 @@ export default {
   },
 
   methods: {
+    onConfirmArea(values) {
+      this.loginForm.f_Address = values
+        .filter((item) => !!item)
+        .map((item) => item.name)
+        .join('-')
+      this.showArea = false
+    },
     clickLogin() {
       const { f_RealName, f_Industry, f_Address } = this.loginForm
       if (f_RealName === '') {

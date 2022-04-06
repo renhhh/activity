@@ -15,7 +15,16 @@
       placeholder="请输入短信验证码"
     >
       <template #button>
-        <span style="color: #6fc56c" @click="getVerifyCode">点击获取</span>
+        <span
+          v-show="verification"
+          style="color: #6fc56c"
+          @click="getVerifyCode"
+          >点击获取</span
+        >
+        <span v-show="!verification"
+          ><span style="color: #6fc56c">{{ timer }}</span
+          >秒后重新获取</span
+        >
       </template>
     </van-field>
     <van-field
@@ -42,12 +51,15 @@ export default {
         f_Captcha: '',
         f_Address: '',
       },
-      tel: '',
-      sms: '',
+      timer: 60,
+      verification: true,
     }
   },
-  created() {},
-
+  created() {
+    if (!document.referrer && window.location.href.indexOf('eqxiu.com') == -1) {
+      window.location.href = `https://i.eqxiu.com/s/dmz3GIky?bt=yxy`
+    }
+  },
   methods: {
     getVerifyCode() {
       var iphoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
@@ -67,6 +79,14 @@ export default {
         })
         .then(() => {
           Toast.success('验证码已发送')
+          this.verification = false
+          let authTimer = setInterval(() => {
+            this.timer--
+            if (this.timer <= 0) {
+              this.verification = true
+              clearInterval(authTimer)
+            }
+          }, 1000)
         })
     },
     clickLogin() {
@@ -90,16 +110,16 @@ export default {
         if (isExist) {
           this.$router.push({
             path: '/main',
-            query:{
-              f_Mobile: this.loginForm.f_Mobile
-            }
+            query: {
+              f_Mobile: this.loginForm.f_Mobile,
+            },
           })
         } else {
           this.$router.push({
             path: '/info',
-            query:{
-              f_Mobile: this.loginForm.f_Mobile
-            }
+            query: {
+              f_Mobile: this.loginForm.f_Mobile,
+            },
           })
         }
         console.log(data.data)
