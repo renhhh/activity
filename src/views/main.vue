@@ -116,6 +116,18 @@
           <div></div>
           <div></div>
         </div>
+        <div class="tips">
+          <div>188</div>
+          <div>88</div>
+          <div>68</div>
+          <div>58</div>
+          <div>36</div>
+          <div>28</div>
+          <div>18</div>
+          <div>8</div>
+          <div>5</div>
+          <div>3</div>
+        </div>
       </div>
     </div>
   </div>
@@ -399,7 +411,7 @@ export default {
   .present-line {
     display: flex;
     position: fixed;
-    right: 20px;
+    right: 34px;
     top: 54px;
     bottom: 100px;
     width: 104px;
@@ -418,7 +430,6 @@ export default {
       .kedu {
         position: absolute;
         z-index: 20;
-        // background: red;
         top: 4px;
         bottom: 4px;
         left: 4px;
@@ -438,6 +449,23 @@ export default {
           // border-radius: 24px 24px 0 0;
         }
       }
+
+      .tips {
+        position: absolute;
+        z-index: 20;
+        top: -3px;
+        bottom: 4px;
+        border-radius: 24px;
+        box-sizing: border-box;
+        left: 38px;
+        width: 22px;
+        color: #226f5b;
+        > div {
+          width: 100%;
+          height: 10%;
+          font-weight: bold;
+        }
+      }
     }
     .inner-line {
       position: absolute;
@@ -447,11 +475,14 @@ export default {
       border-radius: 24px;
       text-align: center;
       .invote-person {
+        display: inline-block;
         position: absolute;
         top: -14px;
+        left: -5px;
         font-size: 12px;
         color: #000;
         text-align: center;
+        width: 33px;
       }
     }
     .icon-box {
