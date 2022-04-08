@@ -12,6 +12,7 @@
         :class="[item.have ? 'deactive' : 'active']"
         v-for="(item, index) of comList"
         :key="index"
+        @click="handleClick(item)"
       >
         <img :src="item.url" />
         <div class="price">¥{{ item.price }}</div>
@@ -106,7 +107,7 @@ export default {
         {
           url: require('../assets/images/list/10.png'),
           level: 10,
-          price: '',
+          price: 1618,
           name: '终极大奖',
           count: 188,
           have: false,
@@ -126,6 +127,19 @@ export default {
     },
   },
   methods: {
+    handleClick(item) {
+      let level = this.$route.query.level
+      if (item.level < level) {
+        Toast.fail('你已超过邀请人数，不可领取。')
+        return
+      }
+      if (item.level > level) {
+        let count = item.count - this.$route.query.level
+        Toast.fail(`你还需获得${num}次帮助即可领取`)
+        return
+      }
+      this.$router.push('/my')
+    },
     clickLogin() {
       const { f_RealName, f_Industry, f_Address } = this.loginForm
       if (f_RealName === '') {

@@ -57,7 +57,7 @@
     <div class="common-border center-box">
       <div class="card-top">
         <img class="lipin-left" src="../assets/images/my/present.png" alt="" />
-        <span class="my-title">我的礼品</span>
+        <span class="my-title">兑奖中心</span>
       </div>
       <!-- presents form.GiftList-->
       <div class="present-box">
@@ -75,12 +75,18 @@
               <div class="introduce-name">{{ item.F_CouponName }}</div>
               <div>¥{{ item.F_Price }}</div>
             </div>
-            <div v-if="item.gittstatus" class="yilingqu">
-              <span>已领取</span>
-            </div>
-            <div v-else class="lingqu">
+             <div v-if="item.F_CanExchange && !item.F_GiftStatus" class="lingqu">
               <span @click="goAdreessPage(item.F_Level)">领 取</span>
             </div>
+            <div v-else-if="!item.F_CanExchange" class="yilingqu">
+              <span>不可领取</span>
+            </div>
+            <div v-else class="yilingqu">
+              <span>已领取</span>
+            </div>
+            <!-- <div v-else class="lingqu">
+              <span @click="goAdreessPage(item.F_Level)">领 取</span>
+            </div> -->
           </div>
         </div>
       </div>

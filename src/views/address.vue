@@ -165,7 +165,7 @@ export default {
     margin-top: 24px;
     text-align: center;
     line-height: 46px;
-    background: url('../assets/images/address/receive.png') no-repeat center
+    background: url('../assets/images/login-btn.png') no-repeat center
       center;
     background-size: 100% 100%;
     color: #fff;

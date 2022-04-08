@@ -81,7 +81,7 @@ export default {
   .main {
     box-sizing: border-box;
     height: 500px;
-    background: url('../assets/images/share/content.jpg') no-repeat center
+    background: url('../assets/images/share/content.jpeg') no-repeat center
       center;
     background-size: 100% 100%;
     padding-top: 386px;

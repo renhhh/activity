@@ -151,8 +151,8 @@ export default {
   .login-title {
     width: 250px;
     height: 60px;
-    background: url('../assets/images/login-title.png') no-repeat left center;
-    background-size: contain;
+        background: url('../assets/images/login-title.png') no-repeat left center;
+    background-size: 70% 150%;
   }
   .title {
     margin: 17px 0 26px;

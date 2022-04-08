@@ -290,6 +290,7 @@ export default {
         path: '/list',
         query: {
           level: val,
+          num: this.current.invitUserNum,
         },
       })
     },
