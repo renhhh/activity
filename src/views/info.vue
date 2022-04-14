@@ -151,6 +151,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  min-height: 768px;
   padding: 147px 70px 0;
   background: url('../assets/images/login.jpg') no-repeat center center;
   background-size: 100% 100%;

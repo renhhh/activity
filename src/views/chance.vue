@@ -7,7 +7,11 @@
   <div class="login-box">
     <div class="content">
       <div class="left-box">
-        <span class="name">{{ form.F_CouponName }}购物</span>
+        <span class="name"
+          >{{
+            form.F_CouponName == '淘宝' ? '天猫' : form.F_CouponName
+          }}购物</span
+        >
         <span class="title">平台优惠券</span>
       </div>
       <div class="right-box">
@@ -22,7 +26,6 @@
     </div>
     <div class="login-btn" @click="clickLogin">确 定</div>
     <div class="tip">{{ tip }}</div>
-
   </div>
 </template>
 

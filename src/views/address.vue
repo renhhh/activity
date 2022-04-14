@@ -10,6 +10,7 @@
 -->
 <template>
   <div class="address-box">
+    <div class="header-title">请填写收货信息</div>
     <van-row type="flex" align="center" class="mt-24">
       <van-col span="7">
         <span class="label">收货人</span>
@@ -67,6 +68,7 @@
     </van-row>
     <div class="login-btn" @click="onSubmit">领 取</div>
     <div class="back" @click="goback">返 回</div>
+    <div class="footer">奖品将在活动结束后30个工作日内寄出</div>
   </div>
 </template>
 
@@ -146,8 +148,9 @@ export default {
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
+  min-height: 768px;
   height: 100%;
-  padding: 147px 40px 0;
+  padding: 50px 40px 0;
   background: url('../assets/images/address/bg.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
@@ -159,14 +162,24 @@ export default {
   .mt-24 {
     margin-bottom: 24px;
   }
+  .header-title {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
 
+  }
   .login-btn {
     height: 46px;
-    margin-top: 24px;
+    // margin-top: 24px;
     text-align: center;
     line-height: 46px;
-    background: url('../assets/images/login-btn.png') no-repeat center
-      center;
+    background: url('../assets/images/login-btn.png') no-repeat center center;
     background-size: 100% 100%;
     color: #fff;
     font-weight: bold;

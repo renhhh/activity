@@ -134,8 +134,8 @@ export default {
         return
       }
       if (item.level > level) {
-        let count = item.count - this.$route.query.level
-        Toast.fail(`你还需获得${num}次帮助即可领取`)
+        let count = item.count - this.$route.query.num
+        Toast.fail(`你还需获得${count}次帮助即可领取`)
         return
       }
       this.$router.push('/my')
