@@ -50,7 +50,7 @@
             <div class="mb-4">{{ item.F_CouponName }}购物</div>
             <div style="font-size: 12px">平台优惠券</div>
           </div>
-          <div class="read-btn" @click="clickReadJuan">查看</div>
+          <div class="read-btn" @click="clickReadJuan(item)">查看</div>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@
               <div class="introduce-name">{{ item.F_CouponName }}</div>
               <div>¥{{ item.F_Price }}</div>
             </div>
-             <div v-if="item.F_CanExchange && !item.F_GiftStatus" class="lingqu">
+            <div v-if="item.F_CanExchange && !item.F_GiftStatus" class="lingqu">
               <span @click="goAdreessPage(item.F_Level)">领 取</span>
             </div>
             <div v-else-if="!item.F_CanExchange" class="yilingqu">
@@ -95,7 +95,7 @@
       <span class="btn" @click="goMain">返回寻宝</span>
     </div>
     <van-dialog v-model="show" title="优惠卷">
-      <img :src="url" alt="" />
+      <img :src="url" alt="" class="juan-img" />
     </van-dialog>
   </div>
 </template>
@@ -111,7 +111,19 @@ export default {
     return {
       cerect: sessionStorage.getItem('invitCode'),
       mobile: sessionStorage.getItem('mobile'),
-      url: require('../assets/images/share/qrcode.png'),
+      url: require('../assets/images/my/juan/1.png'),
+      juanList: {
+        1: require('../assets/images/my/juan/1.png'),
+        2: require('../assets/images/my/juan/2.png'),
+        3: require('../assets/images/my/juan/3.png'),
+        4: require('../assets/images/my/juan/4.png'),
+        5: require('../assets/images/my/juan/5.png'),
+        6: require('../assets/images/my/juan/6.png'),
+        7: require('../assets/images/my/juan/7.png'),
+        8: require('../assets/images/my/juan/8.png'),
+        9: require('../assets/images/my/juan/9.png'),
+        10: require('../assets/images/my/juan/10.png'),
+      },
       form: {
         CouponList: [],
         GiftList: [],
@@ -162,7 +174,9 @@ export default {
     goMain() {
       this.$router.push('/main')
     },
-    clickReadJuan() {
+    clickReadJuan(item) {
+      let level = item.F_Level || '1'
+      this.url = this.juanList[level]
       this.show = true
     },
   },
@@ -191,7 +205,10 @@ export default {
     justify-content: center;
     align-items: center;
   }
-
+  .juan-img {
+    width: 200px;
+    height: 200px;
+  }
   .input-hidden {
     position: fixed;
     top: 0;
