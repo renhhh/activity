@@ -81,7 +81,7 @@ export default {
   .main {
     box-sizing: border-box;
     height: 500px;
-    background: url('../assets/images/share/content.jpeg') no-repeat center
+    background: url('../assets/images/share/content.jpg') no-repeat center
       center;
     background-size: 100% 100%;
     padding-top: 386px;
@@ -96,7 +96,7 @@ export default {
       background-size: 100% 100%;
       margin: 0 auto;
       padding: 20px 15px 10px;
-      color: #dd8174;
+      color: #0f644c;
       img {
         height: 90%;
       }

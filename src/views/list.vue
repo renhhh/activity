@@ -160,7 +160,7 @@ export default {
         this.$router.push({
           path: '/main',
           query: {
-            f_Mobile: this.loginForm.f_Mobile,
+            f_Mobile: sessionStorage.getItem('mobile'),
           },
         })
         // sessionStorage.setItem('telephone', this.tel)
@@ -203,9 +203,9 @@ export default {
     height: 36px;
     line-height: 36px;
     text-align: center;
-    border: 2px solid #40c33b;
+    border: 2px solid #0f644c;
     border-radius: 26px;
-    color: #40c33b;
+    color: #0f644c;
     background: #fff;
     font-weight: bold;
     margin-bottom: 18px;

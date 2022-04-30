@@ -105,7 +105,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 147px 70px 0;
-  background: url('../assets/images/chance/bg.jpeg') no-repeat center center;
+  background: url('../assets/images/chance/bg.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
   .tip {
@@ -137,14 +137,14 @@ export default {
     }
     .name {
       width: 22px;
-      color: #b55229;
+      color: #323233;
       font-weight: bold;
       display: flex;
       align-items: center;
     }
     .title {
       width: 30px;
-      color: #b55229;
+      color: #323233;
     }
     .my {
       position: absolute;
@@ -154,7 +154,7 @@ export default {
       color: #fff;
     }
     .money {
-      color: #b55229;
+      color: #323233;
       text-align: center;
       margin-bottom: 8px;
       .unit {
@@ -172,9 +172,9 @@ export default {
       padding: 8px 23px;
       top: 133px;
       left: 128px;
-      background: #b55229;
+      // background: #b55229;
       border-radius: 5px;
-      color: #ffffc4;
+      color: #323233;
     }
   }
 

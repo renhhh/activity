@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="login-box">
-    <div class="login-title"></div>
+    <!-- <div class="login-title"></div> -->
     <div class="title">完善信息</div>
     <van-field
       v-model="loginForm.f_RealName"
@@ -43,7 +43,7 @@
         @cancel="showArea = false"
       />
     </van-popup>
-    <div class="login-btn" @click="clickLogin">立即进入</div>
+    <div class="login-btn" @click="clickLogin">下一步</div>
   </div>
 </template>
 
@@ -75,11 +75,10 @@ export default {
       showPicker: false,
       showArea: false,
       areaList: areaList,
-
     }
   },
   created() {
-    this.loginForm.f_Mobile = this.$route.query.f_Mobile
+    this.loginForm.f_Mobile = sessionStorage.getItem('mobile')
   },
 
   methods: {
@@ -108,9 +107,9 @@ export default {
         const { data } = res
         console.log(data)
         this.$router.push({
-          path: '/main',
+          path: '/address',
           query: {
-            f_Mobile: this.loginForm.f_Mobile,
+            f_Mobile: sessionStorage.getItem('mobile'),
           },
         })
         // sessionStorage.setItem('telephone', this.tel)

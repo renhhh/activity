@@ -1,12 +1,17 @@
 <template>
   <div class="login-box">
-    <div class="login-title"></div>
+    <!-- <div class="login-title"></div> -->
     <div class="title">欢迎登录</div>
     <van-field
       v-model="loginForm.f_Mobile"
       type="tel"
       class="telephone"
       placeholder="请输入手机号"
+    />
+    <van-field
+      v-model="loginForm.f_InvitCode"
+      class="telephone"
+      placeholder="请输入宝藏密钥"
     />
     <van-field
       v-model="loginForm.f_Captcha"
@@ -17,21 +22,17 @@
       <template #button>
         <span
           v-show="verification"
-          style="color: #6fc56c"
+          style="color: #026549"
           @click="getVerifyCode"
           >点击获取</span
         >
         <span v-show="!verification"
-          ><span style="color: #6fc56c">{{ timer }}</span
+          ><span style="color: #26654c">{{ timer }}</span
           >秒后重新获取</span
         >
       </template>
     </van-field>
-    <van-field
-      v-model="loginForm.f_InvitCode"
-      class="telephone"
-      placeholder="请输入邀请码"
-    />
+
     <div class="login-btn" @click="clickLogin">确 定</div>
   </div>
 </template>
@@ -107,6 +108,13 @@ export default {
 
         // sessionStorage.setItem('userInfo', JSON.stringify(data.data))
         let isExist = data.data.isExist
+        this.$router.push({
+          path: '/main',
+          query: {
+            f_Mobile: sessionStorage.getItem('mobile'),
+          },
+        })
+        return
         if (isExist) {
           this.$router.push({
             path: '/main',
@@ -151,7 +159,7 @@ export default {
   .login-title {
     width: 250px;
     height: 60px;
-        background: url('../assets/images/login-title.png') no-repeat left center;
+    background: url('../assets/images/login-title.png') no-repeat left center;
     background-size: 70% 150%;
   }
   .title {

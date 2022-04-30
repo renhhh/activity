@@ -194,7 +194,7 @@ export default {
 .my-box {
   width: 100%;
   height: 100%;
-  background: url('../assets/images/my/bg.jpg') no-repeat center center;
+  background: url('../assets/images/my/bg.png') no-repeat center center;
   background-size: 100% 100%;
   color: #000;
   box-sizing: border-box;
@@ -225,7 +225,7 @@ export default {
   .name {
     text-align: center;
     font-size: 26px;
-    color: #0f644c;
+    color: #fff;
     font-weight: bold;
   }
   .not-data {
@@ -288,7 +288,7 @@ export default {
         height: 56px;
         padding: 0 20px;
         box-sizing: border-box;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
         color: #fff;
@@ -396,7 +396,7 @@ export default {
         .yilingqu {
           width: 74px;
           height: 30px;
-          line-height: 30px;
+          // line-height: 30px;
           color: #ffd01e;
           text-align: center;
           margin-right: 12px;

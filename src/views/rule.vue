@@ -1,7 +1,7 @@
 <template>
   <div class="rule-box">
-    <img src="../assets/images/rule/title.png" alt="title" class="title" />
-    <div class="invote common-border">
+    <!-- <img src="../assets/images/rule/title.png" alt="title" class="title" /> -->
+    <!-- <div class="invote common-border">
       <ul>
         <li>
           1.SATA世达踏青寻宝活动以踏青图形式呈现
@@ -26,7 +26,7 @@
           领奖信息正确，领取后由工作人员3个工作 日内寄出。
         </li>
       </ul>
-    </div>
+    </div> -->
 
     <div class="btn-box">
       <span class="btn" @click="goMain">返回寻宝</span>
@@ -49,11 +49,12 @@ export default {
 .rule-box {
   width: 100%;
   height: 100%;
-  background: url('../assets/images/rule/rule-bg.jpg') no-repeat center center;
+  background: url('../assets/images/rule/rule.jpg') no-repeat center center;
   background-size: 100% 100%;
   // color: #0f644d;
   box-sizing: border-box;
-  padding: 77px 40px 20px;
+  // padding: 77px 40px 20px;
+  position: relative;
   overflow: scroll;
   .title {
     display: block;
@@ -77,15 +78,19 @@ export default {
     box-shadow: 6px 6px 10px #ccc;
   }
   .btn-box {
-    padding: 0 40px;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    margin-top: 40px;
+
     .btn {
       display: inline-block;
-      width: 90%;
+      // width: 90%;
+      width: 200px;
       height: 50px;
       background: url('../assets/images/rule/btn.png') no-repeat center center;
-  background-size: 100% 100%;
+      background-size: 100% 100%;
       color: #fff;
       border-radius: 14px;
       text-align: center;
