@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="login-box">
-    <div class="header">可领取的奖品</div>
+    <div class="header">可领取的试用品</div>
     <div class="main">
       <div
         class="item"
@@ -15,7 +15,7 @@
         @click="handleClick(item)"
       >
         <img :src="item.url" />
-        <div class="price">¥{{ item.price }}</div>
+        <!-- <div class="price">¥{{ item.price }}</div> -->
         <div class="name">{{ item.name }}</div>
         <div class="desc">获得帮助{{ item.count }}次可以领取</div>
       </div>

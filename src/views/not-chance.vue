@@ -24,7 +24,7 @@
       <span @click="goSharePage">获取</span>
       <span @click="cancel">取消</span>
     </div>
-    <div class="tip">{{ tip }}</div>
+    <!-- <div class="tip">{{ tip }}</div> -->
 
   </div>
 </template>

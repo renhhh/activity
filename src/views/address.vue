@@ -68,7 +68,7 @@
     </van-row>
     <div class="login-btn" @click="onSubmit">领 取</div>
     <div class="back" @click="goback">返 回</div>
-    <div class="footer">奖品将在活动结束后30个工作日内寄出</div>
+    <div class="footer">试用品将在活动结束后30个工作日内寄出，请耐心等待</div>
   </div>
 </template>
 

@@ -8,7 +8,7 @@
     <div class="main">
       <div class="code">
         <div>
-          <div class="font" style="margin-bottom: 12px">宝藏秘钥</div>
+          <div class="font" style="margin-bottom: 12px">宝藏密钥</div>
           <div class="font">
             <input
               id="copy"

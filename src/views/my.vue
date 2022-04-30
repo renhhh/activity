@@ -24,7 +24,7 @@
             @click="copy"
           ></span>
         </div>
-        <div class="mt-10">宝藏秘钥</div>
+        <div class="mt-10">宝藏密钥</div>
       </div>
     </div>
     <div class="common-border center-box mb-20">
@@ -57,7 +57,7 @@
     <div class="common-border center-box">
       <div class="card-top">
         <img class="lipin-left" src="../assets/images/my/present.png" alt="" />
-        <span class="my-title">兑奖中心</span>
+        <span class="my-title">我的试用品</span>
       </div>
       <!-- presents form.GiftList-->
       <div class="present-box">

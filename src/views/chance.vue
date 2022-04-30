@@ -25,7 +25,7 @@
       <span class="my">可到 “我的” 中查看</span>
     </div>
     <div class="login-btn" @click="clickLogin">确 定</div>
-    <div class="tip">{{ tip }}</div>
+    <!-- <div class="tip">{{ tip }}</div> -->
   </div>
 </template>
 
