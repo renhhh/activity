@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="login-box">
-    <div class="main">
+    <!-- <div class="main">
       <div class="code">
         <div>
           <div class="font" style="margin-bottom: 12px">宝藏密钥</div>
@@ -25,8 +25,23 @@
         </div>
         <img src="../assets/images/share/qrcode.png" alt="" />
       </div>
+    </div> -->
+    <div class="code">
+      <div>
+        <div class="font" style="margin-bottom: 12px">宝藏密钥</div>
+        <div class="font">
+          <input id="copy" class="value copyBtn input-hidden" v-model="code" />
+          <span>{{ code }}</span>
+          <span
+            data-clipboard-target="#copy"
+            class="copy-btn"
+            @click="copy"
+          ></span>
+        </div>
+      </div>
+      <img src="../assets/images/share/qrcode.png" alt="" />
     </div>
-    <div class="login-btn">截图保存页面分享</div>
+    <div class="login-btn" style="font-size:12px" @click="share">点击右上角"···"分享给好友助力吧</div>
 
     <div class="login-btn" @click="goback">返 回</div>
   </div>
@@ -62,6 +77,9 @@ export default {
         copyBtn.destroy() // 释放内存
       })
     },
+    share(){
+        Toast.success('请复制宝藏密钥，点击右上角“···”进行分享')
+    }
   },
 }
 </script>
@@ -73,40 +91,40 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  padding: 10px 70px 0;
+  padding: 410px 70px 0;
   background: url('../assets/images/share/share.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
   overflow: scroll;
   .main {
     box-sizing: border-box;
-    height: 500px;
-    background: url('../assets/images/share/content.jpg') no-repeat center
-      center;
+    height: 530px;
+    // background: url('../assets/images/share/content.jpg') no-repeat center
+    //   center;
     background-size: 100% 100%;
-    padding-top: 386px;
-    .code {
-      box-sizing: border-box;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100px;
-      width: 230px;
-      background: url('../assets/images/share/code.png') no-repeat center center;
-      background-size: 100% 100%;
-      margin: 0 auto;
-      padding: 20px 15px 10px;
-      color: #0f644c;
-      img {
-        height: 90%;
-      }
-      span {
-        display: inline-block;
-      }
+    padding-top: 428px;
+  }
+  .code {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 230px;
+    background: url('../assets/images/share/code.png') no-repeat center center;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    padding: 20px 15px 10px;
+    color: #0f644c;
+    img {
+      height: 90%;
     }
-    .font {
-      font-weight: bold;
+    span {
+      display: inline-block;
     }
+  }
+  .font {
+    font-weight: bold;
   }
   .input-hidden {
     position: fixed;
