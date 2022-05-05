@@ -1,34 +1,51 @@
 <template>
   <div id="app">
+    <audio
+      ref="audio"
+      src="./assets/images/audio.mp3"
+      autoplay
+      loop
+      preload="auto"
+    ></audio>
     <router-view />
   </div>
 </template>
 <script>
+import { Dialog } from 'vant'
 export default {
   name: 'App',
   data() {
     return {}
   },
-  computed:{
-    isShowBtn(){
-      let route = this.$route;
-      const arr = [
-        '/',
-        '/form',
-        '/leader-board'
-      ]
-      if(arr.includes(route.path)){
+  mounted() {
+    this.$nextTick(() => {
+      this.$refs.audio.play().catch((err) => {
+        console.log(111, err)
+        Dialog.alert({
+          title: '提示',
+          message: '请点击确认以加载音频文件',
+        }).then(() => {
+          this.$refs.audio.play()
+        })
+      })
+    })
+  },
+  computed: {
+    isShowBtn() {
+      let route = this.$route
+      const arr = ['/', '/form', '/leader-board']
+      if (arr.includes(route.path)) {
         return false
       } else {
         return true
       }
-    }
+    },
   },
   methods: {
-    goPage(){
+    goPage() {
       this.$router.push('/leader-board')
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss">
@@ -65,7 +82,7 @@ body {
     height: 50px;
     border-radius: 10px 0 0 10px;
     border-right: none;
-    background: #098D66;
+    background: #098d66;
     text-align: center;
     font-size: 14px;
   }

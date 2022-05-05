@@ -79,7 +79,7 @@
               <span @click="goAdreessPage(item.F_Level)">领 取</span>
             </div>
             <div v-else-if="!item.F_CanExchange" class="yilingqu">
-              <span>不可领取</span>
+              <span>不可</span><br ><span>领取</span>
             </div>
             <div v-else class="yilingqu">
               <span>已领取</span>
@@ -397,7 +397,7 @@ export default {
           width: 74px;
           height: 30px;
           // line-height: 30px;
-          color: #ffd01e;
+          color: #fff;
           text-align: center;
           margin-right: 12px;
           span {
