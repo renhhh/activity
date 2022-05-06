@@ -26,6 +26,7 @@
         <img src="../assets/images/share/qrcode.png" alt="" />
       </div>
     </div> -->
+    <div class="main"></div>
     <div class="code">
       <div>
         <div class="font" style="margin-bottom: 12px">宝藏密钥</div>
@@ -41,7 +42,9 @@
       </div>
       <img src="../assets/images/share/qrcode.png" alt="" />
     </div>
-    <div class="login-btn" style="font-size:12px" @click="share">点击右上角"···"分享给好友助力吧</div>
+    <div class="login-btn" style="font-size: 12px" @click="share">
+      点击右上角"···"分享给好友助力吧
+    </div>
 
     <div class="login-btn" @click="goback">返 回</div>
   </div>
@@ -77,9 +80,9 @@ export default {
         copyBtn.destroy() // 释放内存
       })
     },
-    share(){
-        Toast.success('请复制宝藏密钥，点击右上角“···”进行分享')
-    }
+    share() {
+      Toast.success('请复制宝藏密钥，点击右上角“···”进行分享')
+    },
   },
 }
 </script>
@@ -91,7 +94,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  padding: 410px 70px 0;
+  padding: 30px 30px 0;
   background: url('../assets/images/share/share.jpg') no-repeat center center;
   background-size: 100% 100%;
   color: #26654c;
@@ -99,10 +102,11 @@ export default {
   .main {
     box-sizing: border-box;
     height: 530px;
-    // background: url('../assets/images/share/content.jpg') no-repeat center
-    //   center;
+    background: url('../assets/images/share/content.jpg') no-repeat center
+      center;
     background-size: 100% 100%;
-    padding-top: 428px;
+    // padding-top: 428px;
+    margin-bottom: 20px;
   }
   .code {
     box-sizing: border-box;
