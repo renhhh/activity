@@ -11,7 +11,7 @@
     <van-field
       v-model="loginForm.f_InvitCode"
       class="telephone"
-      placeholder="请输入宝藏密钥"
+      placeholder="请输入宝藏密钥,如无可不填"
     />
     <van-field
       v-model="loginForm.f_Captcha"
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     getVerifyCode() {
-      var iphoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
+      var iphoneReg = /^[1][3,4,5,7,8,9][0-9]{9}$/
       const { f_Mobile } = this.loginForm
       if (!f_Mobile) {
         Toast.fail('手机号不能为空！')

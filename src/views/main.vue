@@ -130,6 +130,19 @@
         </div>
       </div>
     </div>
+    <img
+      src="../assets/images/main/kefu.png"
+      alt="客服"
+      class="kefu"
+      @click="show = true"
+    />
+    <van-dialog v-model="show" title="请截图扫描客服二维码" width="240px">
+      <img
+        src="../assets/images/main/kefu-code.jpg"
+        alt="二维码"
+        class="kefu-code"
+      />
+    </van-dialog>
   </div>
 </template>
 
@@ -143,6 +156,7 @@ export default {
       active: 3,
       mobile: sessionStorage.getItem('mobile'),
       current: {},
+      show: false,
     }
   },
   computed: {
@@ -338,7 +352,16 @@ export default {
   },
 }
 </script>
-
+<style lang="scss">
+.main {
+  .van-dialog__header {
+    color: #337966;
+  }
+  .van-dialog__content {
+    text-align: center;
+  }
+}
+</style>
 <style lang="scss" scoped>
 .main {
   width: 100%;
@@ -408,6 +431,16 @@ export default {
       bottom: 262px;
       right: 101px;
     }
+  }
+  .kefu {
+    position: fixed;
+    left: 16px;
+    top: 34px;
+    width: 40px;
+  }
+  .kefu-code {
+    width: 140px;
+    height: 140px;
   }
   .present-line {
     display: flex;
