@@ -5,7 +5,7 @@ import './assets/scss/reset.scss'
 import './components/register'
 import LuckDraw from 'vue-luck-draw'
 Vue.use(LuckDraw)
-
+import './permission.js'
 Vue.config.productionTip = false
 
 new Vue({
