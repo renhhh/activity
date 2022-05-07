@@ -75,15 +75,25 @@
               <div class="introduce-name">{{ item.F_CouponName }}</div>
               <div>¥{{ item.F_Price }}</div>
             </div>
-            <div v-if="item.F_CanExchange && !item.F_GiftStatus" class="lingqu">
+            <!-- --- -->
+            <div v-if="item.F_CanExchange" class="lingqu">
+              <span v-if="item.F_GiftStatus">已领取</span>
+              <span v-else @click="goAdreessPage(item.F_Level)">领 取</span>
+            </div>
+            <div v-if="!item.F_CanExchange" class="yilingqu">
+              <span v-if="item.F_GiftStatus">已领取</span>
+              <span v-else>不可<br />领取</span>
+            </div>
+            <!-- --- -->
+            <!-- <div v-if="item.F_CanExchange && !item.F_GiftStatus" class="lingqu">
               <span @click="goAdreessPage(item.F_Level)">领 取</span>
             </div>
             <div v-else-if="!item.F_CanExchange" class="yilingqu">
-              <span>不可</span><br ><span>领取</span>
+              <span>不可</span><br /><span>领取</span>
             </div>
             <div v-else class="yilingqu">
               <span>已领取</span>
-            </div>
+            </div> -->
             <!-- <div v-else class="lingqu">
               <span @click="goAdreessPage(item.F_Level)">领 取</span>
             </div> -->

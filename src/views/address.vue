@@ -115,7 +115,7 @@ export default {
           },
         })
         .then(() => {
-          Toast.success('领取成功，正在发货中..')
+          Toast.success('领取成功，等待发货中..')
           this.$router.push('/my')
         })
       console.log('submit', values)
