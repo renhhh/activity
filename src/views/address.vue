@@ -51,14 +51,56 @@
           /> </van-popup
       ></van-col>
     </van-row>
+    <van-row type="flex" align="center" class="mt-24">
+      <van-col span="7">
+        <span class="label">选择行业</span>
+      </van-col>
+      <van-col span="17">
+        <van-field
+          readonly
+          clickable
+          name="picker"
+          :value="form.industry"
+          placeholder="请输入您的行业"
+          @click="showPicker = true" />
+        <van-popup v-model="showPicker" position="bottom">
+          <van-picker
+            show-toolbar
+            :columns="columns"
+            @confirm="onConfirmHang"
+            @cancel="showPicker = false"
+          /> </van-popup
+      ></van-col>
+    </van-row>
+    <van-row type="flex" align="center" class="mt-24">
+      <van-col span="7">
+        <span class="label">是否采购</span>
+      </van-col>
+      <van-col span="17">
+        <van-field
+          readonly
+          clickable
+          name="picker"
+          :value="form.isNeedProduct"
+          placeholder="是否有采购需求"
+          @click="showCai = true" />
+        <van-popup v-model="showCai" position="bottom">
+          <van-picker
+            show-toolbar
+            :columns="['是', '否']"
+            @confirm="onConfirmCai"
+            @cancel="showCai = false"
+          /> </van-popup
+      ></van-col>
+    </van-row>
     <van-row type="flex" align="top" class="mt-24">
       <van-col span="7">
         <span class="label">详细地址</span>
       </van-col>
       <van-col span="17">
         <van-field
-          v-model="loginForm.tel"
-          rows="4"
+          v-model="form.address"
+          rows="3"
           autosize
           type="textarea"
           class="telephone"
@@ -86,10 +128,21 @@ export default {
       form: {},
       loginForm: {},
       tel: '',
-
+      columns: [
+        '轨道交通',
+        '工程机械',
+        '能源',
+        '钢铁',
+        '电力',
+        '电子',
+        '汽车',
+        '其他',
+      ],
       value: '',
       areaList: areaList,
       showArea: false,
+      showPicker: false,
+      showCai: false,
     }
   },
   created() {
@@ -107,7 +160,7 @@ export default {
     onSubmit(values) {
       this.form.mobile = sessionStorage.getItem('mobile')
       this.form.level = this.level
-
+      this.form.isNeedProduct = this.form.isNeedProduct === '是' ? 1 : 0
       axios
         .get('/LuckyDraw/giftexchange', {
           params: {
@@ -122,6 +175,14 @@ export default {
     },
     goback() {
       this.$router.push('/my')
+    },
+    onConfirmHang(value) {
+      this.form.industry = value
+      this.showPicker = false
+    },
+    onConfirmCai(value) {
+      this.form.isNeedProduct = value
+      this.showCai = false
     },
   },
 }
@@ -172,7 +233,6 @@ export default {
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
-
   }
   .login-btn {
     height: 46px;
